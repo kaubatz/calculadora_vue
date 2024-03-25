@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app">
+        <div>CALCULADORA</div>
+        <hr>
+        <div class="display"> {{display}} </div>
+        <div class="linha">
+            <button class="res" @click="clear()">C</button>            
+        </div>
+       
+        <div class="linha">
+            <button @click="botao('1')">1</button>
+            <button @click="botao('2')">2</button>
+            <button @click="botao('3')">3</button>      
+            <button class="op" @click="tecla_sinal('+')">+</button>
+        </div>
+        <div class="linha">
+            <button @click="botao('4')">4</button>
+            <button @click="botao('5')">5</button>
+            <button @click="botao('6')">6</button>      
+            <button class="op" @click="tecla_sinal('-')">-</button>
+        </div>
+        <div class="linha">
+            <button @click="botao('7')">7</button>
+            <button @click="botao('8')">8</button>
+            <button @click="botao('9')">9</button>      
+            <button class="op" @click="tecla_sinal('x')">x</button>
+        </div>
+        <div class="linha">
+            <button @click="botao('0')">0</button>
+            <button @click="botao('.')">.</button>
+            <button class="res" @click="tecla_sinal('=')">=</button>      
+            <button class="op" @click="tecla_sinal('/')">÷</button>
+        </div>
+       
+        <hr>
+            display: [ {{ display }} ] <br>
+             <hr>
+             [ {{ numAnterior }} ] {{ sinal }} [ {{ numAtual }} ]<br>
+             {{flag}}
+
+
+    </div>    
+</body>
+</html>
+
+<script src="index.js"></script>
