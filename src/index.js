@@ -25,12 +25,25 @@ createApp({
         botao(x){
             if (this.display === '0' || this.flag === 0){
 
+                if (x === '.'){
+                    x = '0.'
+                    this.decimal = '.'
+                }
+
                 this.display = x
                 this.numAtual = parseFloat(this.display)
                 this.flag = 1
 
             }                
             else {
+                if(x === '.'){
+                    if (this.decimal === '.'){
+                        x = ''
+                    }
+                     //caso ja tenha ponto no numero, vai desconsiderar
+                    this.decimal = '.'
+                }
+
                 this.display += x
                 this.numAtual = parseFloat(this.display)
             }                                        
@@ -55,14 +68,15 @@ createApp({
                 }
             }
             else{
-                if (y === '='){
+                // if (y === '='){
                     this.numAnterior = parseFloat(this.display) 
-                }                
+                // }                
             }
 
             this.display = this.numAnterior
             
             this.numAtual = 0
+            this.decimal = ''
             if (y === '='){
                 this.sinal = ''        
             }
